@@ -1,8 +1,115 @@
-<p>Hello 大家好</p>
-<p>我是霸都丶傲天，这是我的个人网站。 </p>
-<p>很高兴你来到这里, 你可以在以下的网站找到我</p>
+export default function SweetCouplePage() {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-pink-100 via-rose-50 to-purple-100 text-gray-800 overflow-hidden">
+      {/* Floating hearts */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(18)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute text-pink-300 animate-bounce opacity-60"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              fontSize: `${18 + Math.random() * 24}px`,
+              animationDuration: `${2 + Math.random() * 4}s`,
+            }}
+          >
+            ❤
+          </div>
+        ))}
+      </div>
 
-<ul>
-  <li> <a href="https://www.zhihu.com/people/AJLoveChina">知乎</a> </li>
-  <li> <a href="http://hejie.nigeerhuo.com">我的博客(已经不更细了,现在在知乎写文章)</a> </li>
-</ul>
+      {/* Hero Section */}
+      <section className="relative flex flex-col items-center justify-center text-center px-6 py-28">
+        <div className="backdrop-blur-md bg-white/50 shadow-2xl rounded-3xl p-10 max-w-3xl border border-white/60">
+          <h1 className="text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-pink-500 to-rose-500 bg-clip-text text-transparent mb-6">
+            To My Favorite Person ❤
+          </h1>
+
+          <p className="text-lg md:text-2xl leading-relaxed text-gray-700 mb-8">
+            遇见你以后，日子开始变得温柔。
+            <br />
+            普通的每一天，因为有你，都像藏着小惊喜。
+          </p>
+
+          <div className="flex flex-wrap gap-4 justify-center">
+            <button className="px-8 py-3 rounded-2xl bg-pink-500 hover:bg-pink-600 text-white font-semibold shadow-lg transition-all duration-300 hover:scale-105">
+              我会一直陪着你
+            </button>
+            <button className="px-8 py-3 rounded-2xl bg-white/80 hover:bg-white text-pink-500 border border-pink-300 font-semibold shadow-md transition-all duration-300 hover:scale-105">
+              谢谢你来到我身边
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Memory Cards */}
+      <section className="px-6 py-14 max-w-6xl mx-auto">
+        <h2 className="text-4xl font-bold text-center text-rose-500 mb-12">
+          我们的小片段 ✨
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {[
+            {
+              title: '第一次见面',
+              text: '那一天可能很普通，但对我来说，是故事开始的瞬间。',
+              emoji: '🌸',
+            },
+            {
+              title: '一起聊天到很晚',
+              text: '明明已经很困了，却还是舍不得结束对话。',
+              emoji: '🌙',
+            },
+            {
+              title: '未来的每一天',
+              text: '希望以后无论开心还是难过，我们都能陪在彼此身边。',
+              emoji: '💖',
+            },
+          ].map((item, index) => (
+            <div
+              key={index}
+              className="bg-white/70 backdrop-blur-md rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-white"
+            >
+              <div className="text-5xl mb-4">{item.emoji}</div>
+              <h3 className="text-2xl font-bold mb-3 text-pink-500">{item.title}</h3>
+              <p className="text-gray-600 leading-relaxed">{item.text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Love Letter */}
+      <section className="px-6 py-16">
+        <div className="max-w-4xl mx-auto bg-white/70 backdrop-blur-md rounded-[2rem] shadow-2xl p-10 border border-white/80">
+          <h2 className="text-4xl font-bold text-center text-rose-500 mb-8">
+            给你的小情书 💌
+          </h2>
+
+          <div className="space-y-5 text-lg leading-9 text-gray-700">
+            <p>
+              其实我不太擅长表达，但我真的很喜欢和你在一起的感觉。
+            </p>
+
+            <p>
+              你会让我开始期待每天醒来的第一件事，也会让我在忙碌的时候突然想到你，然后忍不住笑一下。
+            </p>
+
+            <p>
+              我不知道未来会发生什么，但我希望以后很多重要的瞬间，身边都有你。
+            </p>
+
+            <p className="text-right text-pink-500 font-bold text-2xl pt-4">
+              —— 永远偏爱你的人 ❤
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="text-center py-10 text-gray-500 text-sm">
+        Made with ❤ for the most special girl in the world.
+      </footer>
+    </div>
+  );
+}
