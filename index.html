@@ -357,20 +357,26 @@
       sliderImage.src = images[current];
     }, 3000);
 
-    // 鼠标爱心特效
-    document.addEventListener('mousemove', (e) => {
-      const heart = document.createElement('div');
-      heart.className = 'cursor-heart';
-      heart.innerHTML = '❤';
-      heart.style.left = e.clientX + 'px';
-      heart.style.top = e.clientY + 'px';
+   // 鼠标爱心特效（加入节流优化，防止卡顿）
+  let lastHeartTime = 0;
+document.addEventListener('mousemove', (e) => {
+  const now = Date.now();
+  // 限制每 50 毫秒最多生成一个爱心
+  if (now - lastHeartTime < 50) return;
+  lastHeartTime = now;
 
-      document.body.appendChild(heart);
+  const heart = document.createElement('div');
+  heart.className = 'cursor-heart';
+  heart.innerHTML = '❤';
+  heart.style.left = e.clientX + 'px';
+  heart.style.top = e.clientY + 'px';
 
-      setTimeout(() => {
-        heart.remove();
-      }, 1000);
-    });
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 1000);
+});
 
     // 自动播放音乐兼容
     window.addEventListener('click', () => {
